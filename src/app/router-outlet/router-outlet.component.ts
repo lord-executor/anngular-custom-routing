@@ -39,6 +39,8 @@ export class RouterOutletComponent implements OnInit, OnDestroy {
   }
 
   public activate(componentType: Type<unknown>): void {
+    this.activatedInstane?.destroy();
+    this.activatedInstane = null;
     console.log('inserting instance into outlet', this.id, componentType);
 
     const instanceInjector = Injector.create({

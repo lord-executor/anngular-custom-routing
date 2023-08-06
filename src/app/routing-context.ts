@@ -10,6 +10,7 @@ export class RoutingContext {
   private awaitingActivation: number = -1;
 
   public registerOutlet(level: number, outlet: RouterOutletComponent): () => void {
+    console.log('registering outlet', level);
     this.outlets.set(level, outlet);
 
     if (this.awaitingActivation >= 0 && this.activeRoute) {
@@ -22,6 +23,7 @@ export class RoutingContext {
     }
 
     return () => {
+      console.log('unregistering outlet', level);
       this.outlets.delete(level);
     }
   }
