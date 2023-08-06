@@ -5,9 +5,11 @@ import { AppComponent } from './app.component';
 import { AlphaComponent } from './blocks/alpha/alpha.component';
 import { BetaComponent } from './blocks/beta/beta.component';
 import { RouterOutletComponent } from './router-outlet/router-outlet.component';
-import { Router } from './router';
+import { ROUTES_TOKEN, Router } from './router';
 import { WrapOneComponent } from './blocks/wrap-one/wrap-one.component';
 import { WrapTwoComponent } from './blocks/wrap-two/wrap-two.component';
+import { RoutingContext } from './routing-context';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,17 @@ import { WrapTwoComponent } from './blocks/wrap-two/wrap-two.component';
     WrapTwoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
   ],
   providers: [
     {
-      provide: Router,
-      useValue: new Router([
+      provide: RoutingContext,
+      useClass: RoutingContext
+    },
+    {
+      provide: ROUTES_TOKEN,
+      useValue: [
         {
           segment: "first",
           component: WrapOneComponent,
@@ -57,7 +64,11 @@ import { WrapTwoComponent } from './blocks/wrap-two/wrap-two.component';
             }
           ]
         }
-      ])
+      ]
+    },
+    {
+      provide: Router,
+      useClass: Router
     }
   ],
   bootstrap: [AppComponent]

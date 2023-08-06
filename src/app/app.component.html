@@ -1,2 +1,5 @@
 <h1>{{ title }}</h1>
+<input type="text" [(ngModel)]="path" [ngModelOptions]="{ standalone: true }" /><br>
+<button (click)="navigate()">Navigate</button>
+<hr>
 <app-router-outlet></app-router-outlet>
