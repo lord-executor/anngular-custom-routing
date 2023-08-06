@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+.outlet-context {
+  position: relative;
+  background-color: lightblue;
+  padding: 1em 1em 1em 5em;
+}
+
+app-router-outlet {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+app-alpha,
+app-beta,
+app-wrap-one,
+app-wrap-two {
+  display: block;
+  background-color: lightgreen;
+  padding: 1em;
+}

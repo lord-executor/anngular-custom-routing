@@ -1,5 +1,8 @@
 <h1>{{ title }}</h1>
-<input type="text" [(ngModel)]="path" [ngModelOptions]="{ standalone: true }" /><br>
-<button (click)="navigate()">Navigate</button>
+<ul>
+  <li *ngFor="let item of links"><a href="#" (click)="navigate($event, item)">{{ item }}</a></li>
+</ul>
 <hr>
-<app-router-outlet></app-router-outlet>
+<div class="outlet-context">
+  <app-router-outlet></app-router-outlet>
+</div>

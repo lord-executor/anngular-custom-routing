@@ -8,7 +8,7 @@ let outletId = 1;
 
 @Component({
   selector: 'app-router-outlet',
-  template: '{{ id }}',
+  template: 'outlet: {{ id }}',
 })
 export class RouterOutletComponent implements OnInit, OnDestroy {
   public readonly id: number;
